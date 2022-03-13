@@ -34,21 +34,6 @@ class SEQUENCE_OT_import_text(Operator):
         strip.text = full
         return {"FINISHED"}
 
-class SEQUENCE_OT_import_text(Operator):
-    """Import strip text from Text Editor"""
-
-    bl_label = "Import Text from Text Editor"
-    bl_idname = "sequencer.import_text"
-    bl_options = {"REGISTER", "UNDO"}
-
-    def execute(self, context):
-        text = bpy.data.texts[context.scene.import_text.scene_texts]
-        full = ""
-        for line in text.lines:
-            full += line.body + "\n"
-        strip = context.active_sequence_strip
-        strip.text = full
-        return {"FINISHED"}
 
 class Import_Text_Props(PropertyGroup):
     def update_text_list(self, context):
